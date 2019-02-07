@@ -9,6 +9,7 @@ import { KanjiDetailComponent } from './kanji-detail/kanji-detail.component';
 import { KanjiEditComponent } from './kanji-edit/kanji-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     KanjiComponent,
     KanjiAddComponent,
     KanjiDetailComponent,
-    KanjiEditComponent
+    KanjiEditComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
