@@ -7,16 +7,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './kanji-detail.component.html',
   styleUrls: ['./kanji-detail.component.css']
 })
+
 export class KanjiDetailComponent implements OnInit {
 
   kanji:any;
+  mnemonics:string;
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.rest.getKanji(this.route.snapshot.params['id']).subscribe((data: {}) => {
-      console.log(data);
+      //console.log(data);
       this.kanji = data;
+	  this.mnemonics = this.kanji.result.chmn.mnemonics;
     });
   }
 
