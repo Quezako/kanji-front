@@ -1,12 +1,12 @@
 <div *ngIf="kanji" class="kanjis">
-  <h2>{{kanji.hanzi | uppercase}} Details</h2>
-  <div><span>simplified: </span>{{kanji.simplified}}</div>
-  <div><span>mnemonics: </span>{{kanji.mnemonics}}</div>
-  <div><span>alike: </span>{{kanji.alike}}</div>
-  <div><span>mine: </span>{{kanji.mine}}</div>
-  <div><span>meaning: </span>{{kanji.meaning}}</div>
-  <div><span>reference: </span>{{kanji.reference}}</div>
-  <div><span>remnant: </span>{{kanji.remnant}}</div>
+  <h2>{{kanji.result.chmn.hanzi | uppercase}} Details</h2>
+  <div><span>meaning: </span>{{kanji.result.chmn.meaning}}</div>
+  <div><span>mnemonics: </span>{{kanji.result.chmn.mnemonics}}</div>
+  <div><span>simplified: </span>{{kanji.result.chmn.simplified}}</div>
+  <div><span>alike: </span>{{kanji.result.chmn.alike}}</div>
+  <div><span>mine: </span>{{kanji.result.chmn.mine}}</div>
+  <div><span>reference: </span>{{kanji.result.chmn.reference}}</div>
+  <div><span>remnant: </span>{{kanji.result.chmn.remnant}}</div>
 
   <!--
   <div>

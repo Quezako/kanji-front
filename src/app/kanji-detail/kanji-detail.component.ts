@@ -16,7 +16,7 @@ export class KanjiDetailComponent implements OnInit {
   ngOnInit() {
     this.rest.getKanji(this.route.snapshot.params['id']).subscribe((data: {}) => {
       console.log(data);
-      this.kanji = data.result.chmn;
+      this.kanji = data;
     });
   }
 
