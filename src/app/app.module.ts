@@ -16,6 +16,10 @@ import { KanjiEditComponent } from './kanji-edit/kanji-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule,  MatPaginatorModule,  MatProgressSpinnerModule,  MatSortModule,  MatTableModule,  MatIconModule,  MatButtonModule,  MatCardModule,  MatFormFieldModule } from "@angular/material";
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const appRoutes: Routes = [
   {
@@ -59,8 +63,20 @@ const appRoutes: Routes = [
     FormsModule,
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    BrowserAnimationsModule,
+    DragDropModule,
+    ScrollingModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [
     StatusBar,
