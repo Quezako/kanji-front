@@ -21,7 +21,8 @@ export class KanjiComponent implements OnInit {
     this.kanjis = [];
     this.rest.getKanjis().subscribe((data: {}) => {
       console.log(data);
-      this.kanjis = data;
+      //console.log(data.result);
+      this.kanjis = data.result.chmn;
     });
   }
 

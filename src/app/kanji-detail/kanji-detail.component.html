@@ -1,11 +1,18 @@
 <div *ngIf="kanji" class="kanjis">
   <h2>{{kanji.hanzi | uppercase}} Details</h2>
-  <div><span>Description: </span>{{kanji.prod_desc}}</div>
-  <div><span>Price: </span>{{kanji.prod_price}}</div>
-  <div><span>Update Date: </span>{{kanji.updated_at | date}}</div>
+  <div><span>simplified: </span>{{kanji.simplified}}</div>
+  <div><span>mnemonics: </span>{{kanji.mnemonics}}</div>
+  <div><span>alike: </span>{{kanji.alike}}</div>
+  <div><span>mine: </span>{{kanji.mine}}</div>
+  <div><span>meaning: </span>{{kanji.meaning}}</div>
+  <div><span>reference: </span>{{kanji.reference}}</div>
+  <div><span>remnant: </span>{{kanji.remnant}}</div>
+
+  <!--
   <div>
     <button routerLink="/kanji-edit/{{kanji._id}}">
       Edit
     </button>
   </div>
+  -->
 </div>
