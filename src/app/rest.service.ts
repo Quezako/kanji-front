@@ -32,7 +32,7 @@ export class RestService {
 	}
 
 	getKanji(id): Observable<any> {
-	  return this.http.get(this.endpoint + 'chmn/' + id).pipe(
+	  return this.http.get(this.endpoint + 'chmn/view/' + id).pipe(
 		map(this.extractData));
 	}
 
