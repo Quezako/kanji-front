@@ -20,6 +20,10 @@ export class KanjiDetailComponent implements OnInit {
       //console.log(data);
       this.kanji = data;
 	  this.mnemonics = this.kanji.result.chmn.mnemonics;
+	  // TODO: process fake html tags to true html tags.
+	  /*
+	  hair and beard 彡 hanging in the way while eating with spoons <a c="匕" svg="12a-f"></a>; <img svg="3465a-a"> connects 彡 and  <a c="匕" svg="12a-f"></a>
+	  */
     });
   }
 
