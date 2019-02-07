@@ -9,7 +9,7 @@
 -->
 
 <ul class="kanjis">
-  <li *ngFor="let p of kanjis; let i=index;">
+  <li *ngFor="let p of kanjis.result.chmn; let i=index;">
     <a routerLink="/kanji-details/{{p.id}}">
       <span class="badge">{{i+1}}</span> {{p.hanzi}}
     </a>

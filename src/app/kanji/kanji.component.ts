@@ -22,7 +22,7 @@ export class KanjiComponent implements OnInit {
     this.rest.getKanjis().subscribe((data: {}) => {
       console.log(data);
       //console.log(data.result);
-      this.kanjis = data.result.chmn;
+      this.kanjis = data;
     });
   }
 
