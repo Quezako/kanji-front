@@ -10,7 +10,8 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to kanji-front!');
+    expect(page.getPageTitle()).toContain('Tab One');
+  });
   });
 
   afterEach(async () => {
