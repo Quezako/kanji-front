@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to bad-puns-tracker-client-ng!');
+    expect(page.getTitleText()).toEqual('Welcome to kanji-mnemonic!');
   });
 
   afterEach(async () => {
