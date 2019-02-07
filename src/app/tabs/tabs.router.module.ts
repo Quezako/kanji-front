@@ -6,6 +6,54 @@ import { HomePage } from '../home/home.page';
 // import { EditPage } from '../edit/edit.page';
 import { DetailsPage } from '../details/details.page';
 
+
+const routes: Routes = [
+  {
+    path: 'tabs',
+    component: TabsPage,
+    children: [
+      {
+        path: 'home',
+        children: [
+          {
+            path: '',
+            loadChildren: '../home/home.module#HomePageModule'
+          }
+        ]
+      },
+      {
+        path: 'details',
+        children: [
+          {
+            path: '',
+            loadChildren: '../details/details.module#DetailsPageModule'
+          }
+        ]
+      },
+      // {
+      //   path: 'tab3',
+      //   children: [
+      //     {
+      //       path: '',
+      //       loadChildren: '../tab3/tab3.module#Tab3PageModule'
+      //     }
+      //   ]
+      // },
+      {
+        path: '',
+        redirectTo: '/tabs/home',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/home',
+    pathMatch: 'full'
+  }
+];
+
+/*
 const routes: Routes = [
   {
     path: 'tabs',
@@ -44,7 +92,7 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
-
+*/
 @NgModule({
   imports: [
     RouterModule.forChild(routes)
