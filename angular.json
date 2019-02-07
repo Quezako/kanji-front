@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bad-puns-tracker-client-ng": {
+    "kanji-mnemonic": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bad-puns-tracker-client-ng",
+            "outputPath": "dist/kanji-mnemonic",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,8 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-				"node_modules/bulma/css/bulma.min.css"
+              "src/styles.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -59,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bad-puns-tracker-client-ng:build"
+            "browserTarget": "kanji-mnemonic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bad-puns-tracker-client-ng:build:production"
+              "browserTarget": "kanji-mnemonic:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bad-puns-tracker-client-ng:build"
+            "browserTarget": "kanji-mnemonic:build"
           }
         },
         "test": {
@@ -104,7 +103,7 @@
         }
       }
     },
-    "bad-puns-tracker-client-ng-e2e": {
+    "kanji-mnemonic-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -113,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bad-puns-tracker-client-ng:serve"
+            "devServerTarget": "kanji-mnemonic:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bad-puns-tracker-client-ng:serve:production"
+              "devServerTarget": "kanji-mnemonic:serve:production"
             }
           }
         },
@@ -133,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "bad-puns-tracker-client-ng"
+  "defaultProject": "kanji-mnemonic"
 }
