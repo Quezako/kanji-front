@@ -28,13 +28,13 @@ export class ApiService {
     };
   }
 
-  getKanjis(): Observable<Kanji> {
-    const url = `${apiUrl}`;
-    return this.http.get<Kanji>(url).pipe(
-      tap(_ => console.log(`fetched kanjis`)),
-      catchError(this.handleError<Kanji>(`getKanjis`))
-    );
-  }
+  // getKanjis(): Observable<Kanji> {
+  //   const url = `${apiUrl}`;
+  //   return this.http.get<Kanji>(url).pipe(
+  //     tap(_ => console.log(`fetched kanjis`)),
+  //     catchError(this.handleError<Kanji>(`getKanjis`))
+  //   );
+  // }
 
   getKanji(id): Observable<Kanji> {
     const url = `${apiUrl}/${id}`;
