@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
-// import { AddPage } from '../add/add.page';
-// import { EditPage } from '../edit/edit.page';
 import { DetailsPage } from '../details/details.page';
 
 
-const routes: Routes = [
+const routes4: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
@@ -73,6 +71,11 @@ const routes2: Routes = [
   }
 ];
 
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomePage },
+  { path: 'details/:id', component: DetailsPage },
+];
 
 @NgModule({
   imports: [

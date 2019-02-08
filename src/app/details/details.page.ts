@@ -31,12 +31,10 @@ export class DetailsPage implements OnInit {
         message: 'Loading...'
       });
       await loading.present();
-      console.log(this.route.snapshot.paramMap.get('id'));
-      //await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
-      await this.api.getKanji(528)
+      await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
         .subscribe(res => {
           console.log(res);
-          this.kanji = res;
+          this.kanji = res.result.chmn;
           loading.dismiss();
         }, err => {
           console.log(err);
@@ -61,19 +59,4 @@ export class DetailsPage implements OnInit {
 
     await alert.present();
   }
-
-  // async delete(id) {
-  //   const loading = await this.loadingController.create({
-  //     message: 'Loading...'
-  //   });
-  //   await loading.present();
-  //   await this.api.deleteProduct(id)
-  //     .subscribe(res => {
-  //       loading.dismiss();
-  //       this.router.navigate(['/tabs', { outlets: { home: 'home' } }]);
-  //     }, err => {
-  //       console.log(err);
-  //       loading.dismiss();
-  //     });
-  // }
 }
