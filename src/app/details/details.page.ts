@@ -12,7 +12,11 @@ import { Kanji } from '../kanji';
 })
 export class DetailsPage implements OnInit {
   kanji: Kanji = {
-    id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
+    result: {
+      chmn: {
+        id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
+      }
+    }
   };
 
   constructor(
@@ -38,7 +42,7 @@ export class DetailsPage implements OnInit {
       await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
         .subscribe(res => {
           console.log(res);
-          this.kanji = res.result.chmn;
+          this.kanji = res;
           // this.kanji = res;
           loading.dismiss();
         }, err => {

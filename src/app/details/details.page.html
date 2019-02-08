@@ -12,30 +12,30 @@
   <ion-card>
     <ion-card-content>
       <p class="kanji">
-        {{kanji.hanzi}}
-        {{kanji.meaning}}
+        {{kanji.result.chmn.hanzi}}
+        {{kanji.result.chmn.meaning}}
       </p>
 
       <ion-item lines="none">
         <ion-icon name="flask" size="small" color="primary" slot="start"></ion-icon>
         <ion-label>Mnemonics</ion-label>
       </ion-item>
-      <p [innerHTML]="kanji.mnemonics | sanitizeHtml"></p>
+      <p [innerHTML]="kanji.result.chmn.mnemonics | sanitizeHtml"></p>
       <ion-item lines="none" *ngIf="kanji.simplified">
         <ion-icon name="cut" size="small" color="secondary" slot="start"></ion-icon>
         <ion-label>Simplified</ion-label>
       </ion-item>
-      <p>{{kanji.simplified}}</p>
+      <p>{{kanji.result.chmn.simplified}}</p>
       <ion-item lines="none" *ngIf="kanji.alike">
         <ion-icon name="swap" size="small" color="tertiary" slot="start"></ion-icon>
         <ion-label>Alike</ion-label>
       </ion-item>
-      <p>{{kanji.alike}}</p>
+      <p>{{kanji.result.chmn.alike}}</p>
       <ion-item lines="none" *ngIf="kanji.reference">
         <ion-icon name="book" size="small" color="success" slot="start"></ion-icon>
         <ion-label>Reference</ion-label>
       </ion-item>
-      <p>{{kanji.reference}}</p>
+      <p>{{kanji.result.chmn.reference}}</p>
     </ion-card-content>
   </ion-card>
 
