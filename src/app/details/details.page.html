@@ -20,7 +20,7 @@
         <ion-icon name="flask" size="small" color="primary" slot="start"></ion-icon>
         <ion-label>Mnemonics</ion-label>
       </ion-item>
-      <p>{{kanji.mnemonics}}</p>
+      <p [innerHTML]="kanji.mnemonics | sanitizeHtml"></p>
       <ion-item lines="none">
         <ion-icon name="cut" size="small" color="secondary" slot="start"></ion-icon>
         <ion-label>Simplified</ion-label>
