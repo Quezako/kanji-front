@@ -11,7 +11,8 @@ import { Kanji } from '../kanji';
 })
 export class DetailsPage implements OnInit {
   kanji: Kanji = {
-    id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null };
+    id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
+  };
 
   constructor(public api: ApiService,
     public loadingController: LoadingController,
@@ -35,6 +36,7 @@ export class DetailsPage implements OnInit {
         .subscribe(res => {
           console.log(res);
           this.kanji = res.result.chmn;
+          // this.kanji = res;
           loading.dismiss();
         }, err => {
           console.log(err);
