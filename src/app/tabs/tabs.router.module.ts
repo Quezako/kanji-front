@@ -30,15 +30,6 @@ const routes: Routes = [
           }
         ]
       },
-      // {
-      //   path: 'tab3',
-      //   children: [
-      //     {
-      //       path: '',
-      //       loadChildren: '../tab3/tab3.module#Tab3PageModule'
-      //     }
-      //   ]
-      // },
       {
         path: '',
         redirectTo: '/tabs/home',
@@ -53,8 +44,7 @@ const routes: Routes = [
   }
 ];
 
-/*
-const routes: Routes = [
+const routes2: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
@@ -69,16 +59,6 @@ const routes: Routes = [
         outlet: 'home',
         component: HomePage
       },
-      // {
-      //   path: 'add',
-      //   outlet: 'add',
-      //   component: AddPage
-      // },
-      // {
-      //   path: ':id',
-      //   outlet: 'edit',
-      //   component: EditPage
-      // },
       {
         path: ':id',
         outlet: 'details',
@@ -92,7 +72,8 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
-*/
+
+
 @NgModule({
   imports: [
     RouterModule.forChild(routes)

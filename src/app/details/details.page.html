@@ -7,35 +7,31 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>{{kanji.hanzi}}</ion-card-title>
+      <ion-card-title>{{kanji.result.chmn.hanzi}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content><ion-item>
       <p>meaning:</p>
-      <p>{{kanji.meaning}}</p>
+      <p>{{kanji.result.chmn.meaning}}</p>
     </ion-item><ion-item>
       <p>mnemonics:</p>
-      <p>{{kanji.mnemonics}}</p>
+      <p>{{kanji.result.chmn.mnemonics}}</p>
     </ion-item><ion-item>
       <p>simplified:</p>
-      <p>{{kanji.simplified}}</p>
+      <p>{{kanji.result.chmn.simplified}}</p>
     </ion-item><ion-item>
       <p>alike:</p>
-      <p>{{kanji.alike}}</p>
+      <p>{{kanji.result.chmn.alike}}</p>
     </ion-item><ion-item>
       <p>reference:</p>
-      <p>{{kanji.reference}}</p>
+      <p>{{kanji.result.chmn.reference}}</p>
     </ion-item><ion-item>
       <p>mine:</p>
-      <p>{{kanji.mine}}</p>
+      <p>{{kanji.result.chmn.mine}}</p>
     </ion-item><ion-item>
       <p>remnant:</p>
-      <p>{{kanji.remnant}}</p>
+      <p>{{kanji.result.chmn.remnant}}</p>
     </ion-item>
-      <!-- <ion-button type="button" shape="round" color="primary" expand="block" href="/tabs/(edit:{{kanji._id}})">Edit
-      </ion-button>
-      <ion-button type="button" shape="round" color="danger" expand="block" (click)="delete(kanji._id)">Delete
-      </ion-button> -->
     </ion-card-content>
   </ion-card>
 </ion-content>

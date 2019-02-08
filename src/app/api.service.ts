@@ -7,7 +7,6 @@ import { Kanji } from './kanji';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-//const apiUrl = "/chmn";
 const apiUrl = "http://kanji-back/chmn";
 
 @Injectable({
@@ -28,43 +27,23 @@ export class ApiService {
     };
   }
 
-  // getKanjis(): Observable<Kanji> {
-  //   const url = `${apiUrl}`;
-  //   return this.http.get<Kanji>(url).pipe(
-  //     tap(_ => console.log(`fetched kanjis`)),
-  //     catchError(this.handleError<Kanji>(`getKanjis`))
-  //   );
-  // }
+  private extractData(res: Response) {
+    let body = res;
+    return body || {};
+  }
 
-  getKanji(id): Observable<Kanji> {
-    const url = `${apiUrl}/${id}`;
+  getKanjis(): Observable<any> {
+    const url = `${apiUrl}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError<any>('getKanjis')));
+  }
+
+  getKanji(id:number): Observable<Kanji> {
+    const url = `${apiUrl}/view/${id}`;
     return this.http.get<Kanji>(url).pipe(
       tap(_ => console.log(`fetched kanji id=${id}`)),
       catchError(this.handleError<Kanji>(`getKanji id=${id}`))
     );
   }
-
-  // addKanji(kanji): Observable<Kanji> {
-  //   return this.http.post<Kanji>(apiUrl, kanji, httpOptions).pipe(
-  //     tap((kanji: Kanji) => console.log(`added kanji w/ id=${kanji.id}`)),
-  //     catchError(this.handleError<Kanji>('addKanji'))
-  //   );
-  // }
-
-  // updateKanji(id, kanji): Observable<any> {
-  //   const url = `${apiUrl}/${id}`;
-  //   return this.http.put(url, kanji, httpOptions).pipe(
-  //     tap(_ => console.log(`updated kanji id=${id}`)),
-  //     catchError(this.handleError<any>('updateKanji'))
-  //   );
-  // }
-
-  // deleteKanji(id): Observable<Kanji> {
-  //   const url = `${apiUrl}/${id}`;
-
-  //   return this.http.delete<Kanji>(url, httpOptions).pipe(
-  //     tap(_ => console.log(`deleted kanji id=${id}`)),
-  //     catchError(this.handleError<Kanji>('deleteKanji'))
-  //   );
-  // }
 }

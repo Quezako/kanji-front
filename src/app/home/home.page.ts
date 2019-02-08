@@ -11,9 +11,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  // kanjis: Kanji[] = [];
-  kanjis: Kanji;
+  kanjis: Kanji[] = [];
 
   constructor(public api: ApiService,
     public loadingController: LoadingController,
@@ -31,16 +29,13 @@ export class HomePage implements OnInit {
     await loading.present();
     await this.api.getKanjis()
       .subscribe(res => {
-        this.kanjis = res;
+        // this.kanjis = res;
+        this.kanjis = res.result.chmn;
         console.log(this.kanjis);
         loading.dismiss();
       }, err => {
         console.log(err);
         loading.dismiss();
-      });
+        });
   }
-
-  // drop(event: CdkDragDrop<string[]>) {
-  //   moveItemInArray(this.kanjis, event.previousIndex, event.currentIndex);
-  // }
 }

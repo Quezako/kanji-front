@@ -5,13 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <cdk-virtual-scroll-viewport cdkDropList itemSize="20" class="example-viewport" (cdkDropListDropped)="drop($event)">
-    <ion-item *cdkVirtualFor="let p of kanjis" class="example-item" href="/tabs/(details:{{p._id}})" cdkDrag>
+
+  <cdk-virtual-scroll-viewport cdkDropList style="height: 100%" itemSize="20" class="example-viewport" (cdkDropListDropped)="drop($event)"  minBufferPx="1200" maxBufferPx="1200">
+    <ion-item *cdkVirtualFor="let p of kanjis" class="example-item" href="/tabs/(details:{{p.id}})">
       <ion-icon name="desktop" slot="start"></ion-icon>
-      {{p.prod_name}}
+      {{p.hanzi}}
       <div class="item-note" slot="end">
-        {{p.prod_price | currency}}
+        {{p.meaning}}
       </div>
     </ion-item>
   </cdk-virtual-scroll-viewport>
+
 </ion-content>
