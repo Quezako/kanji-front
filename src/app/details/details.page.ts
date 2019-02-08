@@ -31,7 +31,9 @@ export class DetailsPage implements OnInit {
         message: 'Loading...'
       });
       await loading.present();
-      await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
+      console.log(this.route.snapshot.paramMap.get('id'));
+      //await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
+      await this.api.getKanji(528)
         .subscribe(res => {
           console.log(res);
           this.kanji = res;
