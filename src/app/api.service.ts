@@ -18,9 +18,7 @@ export class ApiService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(error);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
@@ -39,7 +37,7 @@ export class ApiService {
       catchError(this.handleError<any>('getKanjis')));
   }
 
-  getKanji(id:number): Observable<Kanji> {
+  getKanji(id): Observable<Kanji> {
     const url = `${apiUrl}/view/${id}`;
     return this.http.get<Kanji>(url).pipe(
       tap(_ => console.log(`fetched kanji id=${id}`)),
