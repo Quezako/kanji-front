@@ -8,33 +8,35 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{kanji.hanzi}}</ion-card-title>
-    </ion-card-header>
 
-    <ion-card-content><ion-item>
-      <p>meaning:</p>
-      <p>{{kanji.meaning}}</p>
-    </ion-item><ion-item>
-      <p>mnemonics:</p>
+  <ion-card>
+    <ion-card-content>
+      <p class="kanji">
+        {{kanji.hanzi}}
+        {{kanji.meaning}}
+      </p>
+
+      <ion-item lines="none">
+        <ion-icon name="flask" size="small" color="primary" slot="start"></ion-icon>
+        <ion-label>Mnemonics</ion-label>
+      </ion-item>
       <p>{{kanji.mnemonics}}</p>
-    </ion-item><ion-item>
-      <p>simplified:</p>
+      <ion-item lines="none">
+        <ion-icon name="cut" size="small" color="secondary" slot="start"></ion-icon>
+        <ion-label>Simplified</ion-label>
+      </ion-item>
       <p>{{kanji.simplified}}</p>
-    </ion-item><ion-item>
-      <p>alike:</p>
+      <ion-item lines="none">
+        <ion-icon name="swap" size="small" color="tertiary" slot="start"></ion-icon>
+        <ion-label>Alike</ion-label>
+      </ion-item>
       <p>{{kanji.alike}}</p>
-    </ion-item><ion-item>
-      <p>reference:</p>
+      <ion-item lines="none">
+        <ion-icon name="book" size="small" color="success" slot="start"></ion-icon>
+        <ion-label>Reference</ion-label>
+      </ion-item>
       <p>{{kanji.reference}}</p>
-    </ion-item><ion-item>
-      <p>mine:</p>
-      <p>{{kanji.mine}}</p>
-    </ion-item><ion-item>
-      <p>remnant:</p>
-      <p>{{kanji.remnant}}</p>
-    </ion-item>
     </ion-card-content>
   </ion-card>
+
 </ion-content>
