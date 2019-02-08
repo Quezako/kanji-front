@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, AlertController } from '@ionic/angular';
-import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController, AlertController } from '@ionic/angular';
+
+import { ApiService } from '../api.service';
 import { Kanji } from '../kanji';
 
 @Component({
@@ -14,11 +15,13 @@ export class DetailsPage implements OnInit {
     id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
   };
 
-  constructor(public api: ApiService,
+  constructor(
+    public api: ApiService,
     public loadingController: LoadingController,
-    public alertController: AlertController,
     public route: ActivatedRoute,
-    public router: Router) { }
+    public router: Router,
+    public alertController: AlertController
+  ) { }
 
   ngOnInit() {
     this.getKanji();

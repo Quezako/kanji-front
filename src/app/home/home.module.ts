@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+// import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const routes: Routes = [
   {
@@ -18,12 +18,13 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
+    IonicModule,
     ScrollingModule,
-    DragDropModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
+    // DragDropModule,
+    // RouterModule.forChild([{ path: '', component: HomePage }])
+    RouterModule.forChild(routes)
   ],
   declarations: [HomePage]
 })

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+
 import { ApiService } from '../api.service';
 import { Kanji } from '../kanji';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +13,12 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class HomePage implements OnInit {
   kanjis: Kanji[] = [];
 
-  constructor(public api: ApiService,
+  constructor(
+    public api: ApiService,
     public loadingController: LoadingController,
-    public router: Router,
-    public route: ActivatedRoute) { }
+    public route: ActivatedRoute,
+    public router: Router
+  ) { }
 
   ngOnInit() {
     this.getKanjis();
@@ -29,7 +31,6 @@ export class HomePage implements OnInit {
     await loading.present();
     await this.api.getKanjis()
       .subscribe(res => {
-        // this.kanjis = res;
         this.kanjis = res.result.chmn;
         console.log(this.kanjis);
         loading.dismiss();
