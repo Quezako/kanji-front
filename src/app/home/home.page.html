@@ -6,11 +6,9 @@
 
 <ion-content>
   <cdk-virtual-scroll-viewport cdkDropList style="height: 100%" itemSize="20" class="example-viewport" (cdkDropListDropped)="drop($event)"  minBufferPx="1200" maxBufferPx="1200">
-    <ion-item *cdkVirtualFor="let p of kanjis" class="example-item" href="/details/{{p.id}}">
-      <div slot="start">
-        <h1>{{p.hanzi}}</h1>
-      </div>
-      <ion-label>
+    <ion-item *cdkVirtualFor="let p of kanjis" routerLink="/details/{{p.id}}">
+      <ion-label text-wrap>
+        {{p.hanzi}}
         {{p.meaning}}
       </ion-label>
     </ion-item>
