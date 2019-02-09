@@ -43,7 +43,6 @@ export class DetailsPage implements OnInit {
         .subscribe(res => {
           console.log(res);
           this.kanji = res;
-          // this.kanji = res;
           loading.dismiss();
         }, err => {
           console.log(err);

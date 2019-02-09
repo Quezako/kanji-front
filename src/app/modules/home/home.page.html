@@ -1,16 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Kanji Mnemonics</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <cdk-virtual-scroll-viewport cdkDropList style="height: 100%" itemSize="20" class="example-viewport" (cdkDropListDropped)="drop($event)"  minBufferPx="1200" maxBufferPx="1200">
-    <ion-item *cdkVirtualFor="let p of kanjis" routerLink="/details/{{p.id}}">
-      <ion-label text-wrap>
-        {{p.hanzi}}
-        {{p.meaning}}
-      </ion-label>
+
+    <ion-searchbar [formControl]="findControl" placeholder="Meaning"></ion-searchbar>
+
+    <div *ngIf="findControl.value && findControl.value.length > 2">
+      <ion-item *cdkVirtualFor="let p of kanjis" routerLink="/details/{{p.id}}">
+        <ion-label text-wrap>
+          {{p.hanzi}}
+          {{p.meaning}}
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <ion-item *ngIf="empty && findControl.value && findControl.value.length > 2">
+      No result
     </ion-item>
+
   </cdk-virtual-scroll-viewport>
+
 </ion-content>
