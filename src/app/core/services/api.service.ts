@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
+
 import { Kanji } from '../../shared/models/kanji.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-const apiUrl = "http://kanji-back/chmn";
+const apiUrl = "http://kanji-back";
 
 @Injectable({
   providedIn: 'root'
@@ -30,15 +32,15 @@ export class ApiService {
     return body || {};
   }
 
-  getKanjis(): Observable<any> {
-    const url = `${apiUrl}`;
+  getKanjis(meaning): Observable<any> {
+    const url = `${apiUrl}/chmn?meaning=${meaning}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError<any>('getKanjis')));
   }
 
   getKanji(id): Observable<Kanji> {
-    const url = `${apiUrl}/view/${id}`;
+    const url = `${apiUrl}/chmn/view/${id}`;
     return this.http.get<Kanji>(url).pipe(
       tap(_ => console.log(`fetched kanji id=${id}`)),
       catchError(this.handleError<Kanji>(`getKanji id=${id}`))

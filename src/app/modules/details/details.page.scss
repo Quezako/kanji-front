@@ -3,6 +3,10 @@ h1 {
     margin-right: 10px;
 }
 
+p {
+    font-size: 120%;
+}
+
 p.kanji::first-letter {
   font-size: 200%;
   margin-right: 5px;
@@ -11,7 +15,14 @@ p.kanji::first-letter {
 .item-lines-none {
     --min-height: 0px;
 }
+
 .item-lines-none * {
-    margin-top: 5px;
+    margin: 5px;
+    padding: 0;
+}
+
+div {
+    border-radius: 2px;
+    padding: 5px;
     margin-bottom: 5px;
 }
