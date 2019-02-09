@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, AlertController } from '@ionic/angular';
 
-import { ApiService } from '../api.service';
-import { Kanji } from '../kanji';
+import { ApiService } from '../../core/services/api.service';
+import { Kanji } from '../../shared/models/kanji.model';
 
 @Component({
   selector: 'app-details',

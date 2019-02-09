@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailsPage } from './details.page';
-import { SanitizeHtmlPipe } from '../sanitize-html.pipe';
+import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
 
 const routes: Routes = [
   {
