@@ -9,8 +9,8 @@ import { Kanji } from '../../shared/models/kanji.model';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-// const apiUrl = "http://kanji-back";
-const apiUrl = "http://kanji.quezako.com";
+const apiUrl = "http://kanji-back";
+// const apiUrl = "http://kanji.quezako.com";
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class ApiService {
   }
 
   getKanjis(meaning): Observable<any> {
-    const url = `${apiUrl}/chmn?meaning=${meaning}`;
+    const url = `${apiUrl}/chmn?mine=1&meaning=${meaning}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError<any>('getKanjis')));
