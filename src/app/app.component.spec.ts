@@ -34,12 +34,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'kanji-front'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('kanji-front');
-  });
-    
   it('should initialize the app', async () => {
     TestBed.createComponent(AppComponent);
     expect(platformSpy.ready).toHaveBeenCalled();
@@ -48,10 +42,6 @@ describe('AppComponent', () => {
     expect(splashScreenSpy.hide).toHaveBeenCalled();
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to kanji-front!');
-  });
+  // TODO: add more tests!
+
 });
