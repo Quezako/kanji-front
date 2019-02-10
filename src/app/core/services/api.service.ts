@@ -9,8 +9,8 @@ import { Kanji } from '../../shared/models/kanji.model';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-const apiUrl = "http://kanji-back";
-// const apiUrl = "http://kanji.quezako.com";
+// const apiUrl = "http://kanji-back";
+const apiUrl = "https://kanji.quezako.com";
 
 @Injectable({
   providedIn: 'root'
