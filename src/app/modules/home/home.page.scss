@@ -1,0 +1,9 @@
+ion-label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+ion-label::first-letter {
+  font-size: 200%;
+  margin-right: 5px;
+}
