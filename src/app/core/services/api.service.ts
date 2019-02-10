@@ -4,13 +4,14 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
+import { environment } from '../../../environments/environment';
 import { Kanji } from '../../shared/models/kanji.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-// const apiUrl = "http://kanji-back";
-const apiUrl = "https://kanji.quezako.com";
+
+const apiUrl = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
