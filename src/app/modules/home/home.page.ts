@@ -20,7 +20,6 @@ export class HomePage implements OnInit {
   findControl = new FormControl();
   error: boolean = false;
   noresult: boolean = false;
-  params: string = '';
 
   objApi = {
     'ion-sb-0': 'kanji-meanings',
@@ -44,9 +43,9 @@ export class HomePage implements OnInit {
     'ion-sb-4': '',
   };
   objJson = {
-    'ion-sb-0': 'kanjimeanings',
-    'ion-sb-1': 'kanjireadings',
-    'ion-sb-2': 'kanjireadings',
+    'ion-sb-0': 'kanjiMeanings',
+    'ion-sb-1': 'kanjiReadings',
+    'ion-sb-2': 'kanjiReadings',
     'ion-sb-3': 'kanji',
     'ion-sb-4': 'ids',
   };
@@ -54,6 +53,7 @@ export class HomePage implements OnInit {
   field: string = this.objField['ion-sb-0'];
   field2: string = this.objField2['ion-sb-0'];
   json: string = this.objJson['ion-sb-0'];
+  params: string = this.field2 + "&" + this.field + "=";
 
   constructor(
     public apiService: ApiService,
