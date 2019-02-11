@@ -1,9 +1,30 @@
-ion-label {
+ion-segment-button, ion-label {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+    text-transform: initial;
+    min-width: 0;
+    font-size: 13px;
+}
+
+ion-segment-button {
+  border-right: 1px #ddd solid;
+}
+
+ion-segment-button:last-child {
+  border-right: 0;
+}
+
+ion-item ion-label {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-ion-label::first-letter {
+ion-item ion-label::first-letter {
   font-size: 200%;
   margin-right: 5px;
 }

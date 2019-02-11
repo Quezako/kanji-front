@@ -34,8 +34,9 @@ export class ApiService {
     return body || {};
   }
 
-  getKanjis(meaning): Observable<any> {
-    const url = `${apiUrl}/chmn?mine=1&meaning=${meaning}`;
+  getKanjis(api: string, params: string): Observable<any> {
+    const url = `${apiUrl}/${api}?${params}`;
+    console.log(url);
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError<any>('getKanjis')));
