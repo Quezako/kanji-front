@@ -36,10 +36,10 @@
   <cdk-virtual-scroll-viewport cdkDropList style="height: 100%" itemSize="20" class="example-viewport" minBufferPx="1200" maxBufferPx="1200">
 
     <div *ngIf="findControl.value && findControl.value.length > 0">
-      <ion-item *cdkVirtualFor="let p of kanjis" routerLink="/details/{{p.id}}">
+        <ion-item *cdkVirtualFor="let kanji of kanjis" routerLink="/details/{{kanji.ucs}}">
         <ion-label text-wrap>
-          {{p.hanzi}}
-          {{p.meaning}}
+          {{kanji.ucs}}
+          {{kanji.label}}
         </ion-label>
       </ion-item>
     </div>
