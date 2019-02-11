@@ -1,17 +1,41 @@
 <ion-header>
+
   <ion-toolbar>
-    <ion-title>Kanji Mnemonics</ion-title>
-    <a routerLink="/about" slot="end"><ion-icon name="information-circle-outline" size="large"></ion-icon></a>
+    <ion-searchbar [formControl]="findControl" placeholder="Meaning" size="small"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/about">
+        <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
+  <ion-toolbar color="light" (ionChange)="segmentChanged($event)">
+    <ion-segment>
+      <ion-segment-button>
+        <ion-label>Meaning</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label>ON read</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label>KUN read</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label>Kanji</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label>Radicals</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
 
   <cdk-virtual-scroll-viewport cdkDropList style="height: 100%" itemSize="20" class="example-viewport" minBufferPx="1200" maxBufferPx="1200">
 
-    <ion-searchbar [formControl]="findControl" placeholder="Meaning"></ion-searchbar>
-
-    <div *ngIf="findControl.value && findControl.value.length > 2">
+    <div *ngIf="findControl.value && findControl.value.length > 0">
       <ion-item *cdkVirtualFor="let p of kanjis" routerLink="/details/{{p.id}}">
         <ion-label text-wrap>
           {{p.hanzi}}
@@ -20,7 +44,7 @@
       </ion-item>
     </div>
 
-    <ion-item *ngIf="empty && findControl.value && findControl.value.length > 2">
+    <ion-item *ngIf="noresult && findControl.value && findControl.value.length > 0">
       No result
     </ion-item>
 
