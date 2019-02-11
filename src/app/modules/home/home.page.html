@@ -44,8 +44,12 @@
       </ion-item>
     </div>
 
-    <ion-item *ngIf="noresult && findControl.value && findControl.value.length > 0">
+    <ion-item *ngIf="noresult && findControl.value && findControl.value.length > 0" color="warning">
       No result
+    </ion-item>
+
+    <ion-item *ngIf="error" color="danger">
+      Communication error with the server, please try again.
     </ion-item>
 
   </cdk-virtual-scroll-viewport>

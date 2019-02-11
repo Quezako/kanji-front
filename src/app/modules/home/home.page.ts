@@ -54,15 +54,40 @@ export class HomePage implements OnInit {
   field2: string = this.objField2['ion-sb-0'];
   json: string = this.objJson['ion-sb-0'];
   params: string = this.field2 + "&" + this.field + "=";
+  loading:any;
+  timeoutLoad;
 
   constructor(
     public apiService: ApiService,
     public loadingController: LoadingController,
     public route: ActivatedRoute,
     public router: Router
-  ) { }
+  ) {
+  }
+
+  async presentLoading() {
+    this.noresult = false;
+
+    this.loading = await this.loadingController.create({
+      message: 'Loading...',
+    });
+    await this.loading.present();
+  }
 
   ngOnInit() {
+    this.findControl.valueChanges
+      .subscribe(kanjis => {
+        this.noresult = false;
+
+        clearTimeout(this.timeoutLoad);
+
+        if (this.findControl.value && this.findControl.value.length != 0) {
+          this.timeoutLoad = setTimeout(() => {
+            this.presentLoading();
+          }, 800);
+        }
+      });
+
     this.findControl.valueChanges
       .pipe(
         filter(value => value.length > 0),
@@ -72,19 +97,31 @@ export class HomePage implements OnInit {
             catchError(err => {
               this.kanjis = null;
               this.error = true;
+              console.log('error');
+
               return EMPTY;
             })
           )
         )
       )
       .subscribe(kanjis => {
-        this.error = false;
         this.noresult = false;
-        console.log(kanjis.result[this.json]);
-        this.kanjis = kanjis.result[this.json];
+        this.loading.dismiss();
 
-        if (kanjis.result[this.json].length == 0) {
-          this.noresult = true;
+        if (kanjis) {
+          this.error = false;
+
+          console.log(kanjis.result[this.json]);
+          this.kanjis = kanjis.result[this.json];
+
+          if (kanjis.result[this.json].length == 0) {
+            this.noresult = true;
+          }
+        } else {
+          this.kanjis = null;
+          this.error = true;
+
+          return EMPTY;
         }
       });
   }
