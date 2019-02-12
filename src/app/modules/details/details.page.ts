@@ -11,9 +11,10 @@ import { Kanji } from '../../shared/models/kanji.model';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-  kanji: any = {
-    id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
+  kanjis: any = {
+    'init': '0',
   };
+
   // kanji: Kanji = {
   //   result: {
   //     chmn: {
@@ -45,7 +46,7 @@ export class DetailsPage implements OnInit {
       await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
         .subscribe(res => {
           console.log(res);
-          this.kanji = res.result.chmn[0];
+          this.kanjis = res.result.chmn;
           loading.dismiss();
         }, err => {
           console.log(err);
