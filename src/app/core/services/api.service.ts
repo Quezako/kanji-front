@@ -43,7 +43,7 @@ export class ApiService {
   }
 
   getKanji(id): Observable<Kanji> {
-    const url = `${apiUrl}/chmn/view/${id}`;
+    const url = `${apiUrl}/chmn/?mine=1&hanzi=${id}`;
     return this.http.get<Kanji>(url).pipe(
       tap(_ => console.log(`fetched kanji id=${id}`)),
       catchError(this.handleError<Kanji>(`getKanji id=${id}`))
