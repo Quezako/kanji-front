@@ -11,13 +11,16 @@ import { Kanji } from '../../shared/models/kanji.model';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-  kanji: Kanji = {
-    result: {
-      chmn: {
-        id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
-      }
-    }
+  kanji: any = {
+    id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
   };
+  // kanji: Kanji = {
+  //   result: {
+  //     chmn: {
+  //       id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
+  //     }
+  //   }
+  // };
 
   constructor(
     public api: ApiService,
@@ -42,7 +45,7 @@ export class DetailsPage implements OnInit {
       await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
         .subscribe(res => {
           console.log(res);
-          this.kanji = res;
+          this.kanji = res.result.chmn[0];
           loading.dismiss();
         }, err => {
           console.log(err);
