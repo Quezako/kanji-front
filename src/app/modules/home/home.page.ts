@@ -37,8 +37,8 @@ export class HomePage implements OnInit {
   };
   objField2 = {
     'ion-sb-0': 'language=en',
-    'ion-sb-1': 'type=ja_ondotless',
-    'ion-sb-2': 'type=ja_kundotless',
+    'ion-sb-1': 'type=ja_on',
+    'ion-sb-2': 'type=ja_kun',
     'ion-sb-3': '',
     'ion-sb-4': '',
   };

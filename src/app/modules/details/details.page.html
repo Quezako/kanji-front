@@ -10,6 +10,11 @@
         </span>
       </span>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -22,9 +27,7 @@
           {{kanji.hanzi}}
           {{kanji.simplified}}
         </span>
-        <span>
-          {{kanji.meaning}}
-        </span>
+        <span [innerHTML]="kanji.meaning | sanitizeHtml"></span>
       </div>
 
       <div style="background: #e8f0ff;" *ngIf="kanji.mnemonics[0]">
