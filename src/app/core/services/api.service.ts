@@ -42,12 +42,12 @@ export class ApiService {
       catchError(this.handleError<any>('getKanjis')));
   }
 
-  getKanji(id): Observable<Kanji> {
+  getKanji(id): Observable<any> {
     const url = `${apiUrl}/chmn/?mine=1&hanzi=${id}`;
     console.log(url);
-    return this.http.get<Kanji>(url).pipe(
+    return this.http.get<any>(url).pipe(
       tap(_ => console.log(`fetched kanji id=${id}`)),
-      catchError(this.handleError<Kanji>(`getKanji id=${id}`))
+      catchError(this.handleError<any>(`getKanji id=${id}`))
     );
   }
 }

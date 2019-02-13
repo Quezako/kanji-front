@@ -46,6 +46,13 @@ export class DetailsPage implements OnInit {
       await this.api.getKanji(this.route.snapshot.paramMap.get('id'))
         .subscribe(res => {
           console.log(res);
+
+          res.result.chmn.forEach(kanji => {
+            kanji.mnemonics = kanji.mnemonics.split(/(\p{Script=Hani})+/gu);
+            kanji.alike = kanji.alike.split(/(\p{Script=Hani})+/gu);
+            kanji.reference = kanji.reference.split(/(\p{Script=Hani})+/gu);
+          });
+
           this.kanjis = res.result.chmn;
           loading.dismiss();
         }, err => {

@@ -27,12 +27,15 @@
         </span>
       </div>
 
-      <div style="background: #e8f0ff;" *ngIf="kanji.mnemonics">
+      <div style="background: #e8f0ff;" *ngIf="kanji.mnemonics[0]">
         <ion-item lines="none" color="transparent">
           <ion-icon name="flask" size="small" color="primary"></ion-icon>
           <ion-label>Mnemonics</ion-label>
         </ion-item>
-        <p [innerHTML]="kanji.mnemonics | sanitizeHtml"></p>
+          <span *ngFor="let mnemonic of kanji.mnemonics">
+            <span *ngIf="mnemonic.length > 1" [innerHTML]="mnemonic | sanitizeHtml"></span>
+            <a *ngIf="mnemonic.length == 1" routerLink="/details/{{mnemonic}}">{{mnemonic}}</a>
+          </span>
       </div>
 
       <div style="background: #e1fdff;" *ngIf="kanji.simplified">
@@ -43,20 +46,26 @@
         <p>{{kanji.simplified}}</p>
       </div>
 
-      <div style="background: #eee8ff;" *ngIf="kanji.alike">
+      <div style="background: #eee8ff;" *ngIf="kanji.alike[0]">
         <ion-item lines="none" color="transparent">
           <ion-icon name="swap" size="small" color="tertiary"></ion-icon>
           <ion-label>Alike</ion-label>
         </ion-item>
-        <p>{{kanji.alike}}</p>
+        <span *ngFor="let alike of kanji.alike">
+          <span *ngIf="alike.length > 1" [innerHTML]="alike | sanitizeHtml"></span>
+          <a *ngIf="alike.length == 1" routerLink="/details/{{alike}}">{{alike}}</a>
+        </span>
       </div>
 
-      <div style="background: #eafff3;" *ngIf="kanji.reference">
+      <div style="background: #eafff3;" *ngIf="kanji.reference[0]">
         <ion-item lines="none" color="transparent">
           <ion-icon name="book" size="small" color="success"></ion-icon>
           <ion-label>Reference</ion-label>
         </ion-item>
-        <p>{{kanji.reference}}</p>
+        <span *ngFor="let reference of kanji.reference">
+          <span *ngIf="reference.length > 1" [innerHTML]="reference | sanitizeHtml"></span>
+          <a *ngIf="reference.length == 1" routerLink="/details/{{reference}}">{{reference}}</a>
+        </span>
       </div>
 
     </ion-card-content>
