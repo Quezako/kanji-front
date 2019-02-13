@@ -15,14 +15,6 @@ export class DetailsPage implements OnInit {
     'init': '0',
   };
 
-  // kanji: Kanji = {
-  //   result: {
-  //     chmn: {
-  //       id: null, hanzi: '', meaning: '', mnemonics: '', simplified: '', alike: '', reference: '', mine: null, remnant: null
-  //     }
-  //   }
-  // };
-
   constructor(
     public api: ApiService,
     public loadingController: LoadingController,
@@ -48,6 +40,10 @@ export class DetailsPage implements OnInit {
           console.log(res);
 
           res.result.chmn.forEach(kanji => {
+            kanji.mnemonics = kanji.mnemonics.replace(/<img (svg)=("|')(.*?)("|')>/gi, "<img src='assets/img/$3.$1' style='height: 16px;width:auto;display: inline;'>");
+            kanji.mnemonics = kanji.mnemonics.replace(/; /g, ";<br>");
+            kanji.mnemonics = kanji.mnemonics.replace(/<i>/g, "<i style='color: #f0808f;'>");
+
             kanji.mnemonics = kanji.mnemonics.split(/(\p{Script=Hani})+/gu);
             kanji.alike = kanji.alike.split(/(\p{Script=Hani})+/gu);
             kanji.reference = kanji.reference.split(/(\p{Script=Hani})+/gu);
