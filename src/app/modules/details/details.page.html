@@ -4,10 +4,13 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>
-      <span *ngIf="kanjis[0]">
-        <span *ngFor="let kanji of kanjis">
+      <span *ngIf="kanjis[0] !== undefined">
+        <span *ngFor="let kanji of kanjis" class="kanji">
           {{kanji.hanzi}}
         </span>
+      </span>
+      <span *ngIf="!kanjis[0] !== undefined" class="kanji">
+        {{id}}
       </span>
     </ion-title>
     <ion-buttons slot="end">
@@ -18,7 +21,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="kanjis[0]">
+<ion-content *ngIf="kanjis[0] !== undefined">
 
   <ion-card *ngFor="let kanji of kanjis">
     <ion-card-content>
@@ -30,7 +33,7 @@
         <span [innerHTML]="kanji.meaning | sanitizeHtml"></span>
       </div>
 
-      <div style="background: #e8f0ff;" *ngIf="kanji.mnemonics[0]">
+      <div style="background: #e8f0ff;" *ngIf="kanji.mnemonics[0] !== undefined">
         <ion-item lines="none" color="transparent">
           <ion-icon name="flask" size="small" color="primary"></ion-icon>
           <ion-label>Mnemonics</ion-label>
@@ -49,7 +52,7 @@
         <p>{{kanji.simplified}}</p>
       </div>
 
-      <div style="background: #eee8ff;" *ngIf="kanji.alike[0]">
+      <div style="background: #eee8ff;" *ngIf="kanji.alike[1] !== undefined">
         <ion-item lines="none" color="transparent">
           <ion-icon name="swap" size="small" color="tertiary"></ion-icon>
           <ion-label>Alike</ion-label>
@@ -60,7 +63,7 @@
         </span>
       </div>
 
-      <div style="background: #eafff3;" *ngIf="kanji.reference[0]">
+      <div style="background: #eafff3;" *ngIf="kanji.reference[0] !== undefined">
         <ion-item lines="none" color="transparent">
           <ion-icon name="book" size="small" color="success"></ion-icon>
           <ion-label>Reference</ion-label>
@@ -79,7 +82,8 @@
 <ion-content *ngIf="!kanjis['init'] && !kanjis[0]">
   <ion-card color="warning">
     <ion-card-content>
-      This Kanji has no mnemonic.
+      This Kanji has no mnemonic.<br />
+      Look up <span class="kanji">{{id}}</span> with <a href="https://en.wiktionary.org/wiki/{{id}}">wiktionary</a>.
     </ion-card-content>
   </ion-card>
 </ion-content>
