@@ -25,14 +25,14 @@ export class HomePage implements OnInit {
     'ion-sb-0': 'kanji-meanings',
     'ion-sb-1': 'kanji-readings',
     'ion-sb-2': 'kanji-readings',
-    'ion-sb-3': 'kanji',
+    'ion-sb-3': 'chmn',
     'ion-sb-4': 'ids',
   };
   objField = {
     'ion-sb-0': 'meaning',
     'ion-sb-1': 'reading',
     'ion-sb-2': 'reading',
-    'ion-sb-3': 'kanji',
+    'ion-sb-3': 'hanzi',
     'ion-sb-4': 'ids',
   };
   objField2 = {
@@ -46,7 +46,7 @@ export class HomePage implements OnInit {
     'ion-sb-0': 'kanjiMeanings',
     'ion-sb-1': 'kanjiReadings',
     'ion-sb-2': 'kanjiReadings',
-    'ion-sb-3': 'kanji',
+    'ion-sb-3': 'chmn',
     'ion-sb-4': 'ids',
   };
   api: string = this.objApi['ion-sb-0'];
