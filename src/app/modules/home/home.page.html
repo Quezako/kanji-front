@@ -33,10 +33,16 @@
 
 <ion-content>
 
+  <div class="loader" *ngIf="loading && findControl.value && findControl.value.length > 0">
+    <div class="center">
+      <img src="assets/animated_spinner.gif" style="height: 25px;padding-right: 5px;" /> Loading...
+    </div>
+  </div>
+
   <cdk-virtual-scroll-viewport cdkDropList style="height: 100%" itemSize="20" class="example-viewport" minBufferPx="1200" maxBufferPx="1200">
 
-    <div *ngIf="findControl.value && findControl.value.length > 0">
-        <ion-item *cdkVirtualFor="let kanji of kanjis" routerLink="/details/{{kanji.ucs}}">
+    <div *ngIf="!noresult && findControl.value && findControl.value.length > 0">
+        <ion-item *ngFor="let kanji of kanjis" routerLink="/details/{{kanji.ucs}}">
         <ion-label text-wrap>
           {{kanji.ucs}}
           {{kanji.label}}
