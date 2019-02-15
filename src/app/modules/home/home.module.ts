@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const routes: Routes = [
   {
