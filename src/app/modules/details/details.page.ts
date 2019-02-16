@@ -13,8 +13,9 @@ import { Kanji } from '../../shared/models/kanji.model';
 export class DetailsPage implements OnInit {
   kanjis: any = {
     'init': '0',
-  }
+  };
   id = this.route.snapshot.paramMap.get('id');
+  noresult: boolean = true;
 
   constructor(
     public api: ApiService,
@@ -39,20 +40,32 @@ export class DetailsPage implements OnInit {
       await this.api.getKanji(this.id)
         .subscribe(res => {
           console.log(res);
+          // console.log(res.result.chmn);
+          // console.log(res.result.chmn[0]);
+          // console.log(res.result.chmn[0].label);
 
-          res.result.chmn.forEach(kanji => {
-            for (var field in kanji) {
-              if (['mnemonics', 'alike', 'reference'].includes(field)) {
-                kanji[field] = kanji[field].replace(/; /g, ";<br>");
-                kanji[field] = kanji[field].replace(/<i>(.*?)<\/i>/g, "<span style='color: #f0808f;'>$1</span>");
-                kanji[field] = kanji[field].replace(/<a href=("|')\?d=(.*?)("|')>/gi, "<a href='http://nihongo.monash.edu/cgi-bin/wwwjdic?1MKDR$2'>");
-                kanji[field] = kanji[field].replace(/<img (svg)=("|')(.*?)("|')>/gi, "<img src='assets/img/$3.$1' style='height: 16px;width:auto;display: inline;'>");
-                kanji[field] = kanji[field].split(/(\p{Script=Hani})+/gu);
+          if (res.result.chmn[0].label === null) {
+            this.noresult = true;
+            this.kanjis = {};
+          } else {
+            this.noresult = false;
+
+            res.result.chmn.forEach(kanji => {
+              for (var field in kanji) {
+                if (['mnemonics', 'alike', 'reference'].includes(field)) {
+                  kanji[field] = kanji[field].replace(/; /g, ";<br>");
+                  kanji[field] = kanji[field].replace(/<i>(.*?)<\/i>/g, "<span style='color: #f0808f;'>$1</span>");
+                  kanji[field] = kanji[field].replace(/<a href=("|')\?d=(.*?)("|')>/gi, "<a href='http://nihongo.monash.edu/cgi-bin/wwwjdic?1MKDR$2'>");
+                  kanji[field] = kanji[field].replace(/<img (svg)=("|')(.*?)("|')>/gi, "<img src='assets/img/$3.$1' style='height: 16px;width:auto;display: inline;'>");
+                  kanji[field] = kanji[field].split(/(\p{Script=Hani})+/gu);
+                }
               }
-            }
-          });
+            });
 
-          this.kanjis = res.result.chmn;
+            this.kanjis = res.result.chmn;
+          }
+
+          console.log(this.noresult);
           loading.dismiss();
         }, err => {
           console.log(err);
