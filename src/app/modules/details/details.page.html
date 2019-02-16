@@ -18,7 +18,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="kanjis[0] !== undefined">
+<ion-content *ngIf="!noresult">
 
   <ion-card *ngFor="let kanji of kanjis">
     <ion-card-content>
@@ -76,7 +76,7 @@
 
 </ion-content>
 
-<ion-content *ngIf="!kanjis['init'] && !kanjis[0]">
+<ion-content *ngIf="!kanjis['init'] && noresult">
   <ion-card color="warning">
     <ion-card-content>
       This Kanji has no mnemonic.<br />

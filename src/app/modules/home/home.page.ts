@@ -14,11 +14,13 @@ import { Kanji } from '../../shared/models/kanji.model';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  kanjis: any = {
-    0: {
-      'hanzi': null,
-    }
-  };
+  kanjis: any = [
+    [
+      {
+        'hanzi': null,
+      }
+    ],
+  ];
 
   findControl = new FormControl();
   error: boolean = false;
@@ -97,8 +99,9 @@ export class HomePage implements OnInit {
         if (kanjis) {
           this.error = false;
 
-          console.log(kanjis.result[this.json]);
+          // console.log(kanjis.result[this.json]);
           this.kanjis = kanjis.result[this.json];
+          console.log(this.kanjis);
 
           if (kanjis.result[this.json].length == 0) {
             this.noresult = true;
