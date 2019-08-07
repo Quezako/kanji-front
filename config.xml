@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.quezako.kanji" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.quezako.kanji" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Kanji Mnemonics</name>
     <description>Kanji Mnemonics</description>
     <author email="bureau@quezako.com" href="https://quezako.com/">Jonathan Mousserion</author>
