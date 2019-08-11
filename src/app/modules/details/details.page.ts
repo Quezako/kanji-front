@@ -53,7 +53,8 @@ export class DetailsPage implements OnInit {
                   kanji[field] = kanji[field].replace(/; /g, ";<br>");
                   kanji[field] = kanji[field].replace(/<i>(.*?)<\/i>/g, "<span style='color: #f0808f;'>$1</span>");
                   kanji[field] = kanji[field].replace(/<a href=("|')\?d=(.*?)("|')>/gi, "<a href='http://nihongo.monash.edu/cgi-bin/wwwjdic?1MKDR$2'>");
-                  kanji[field] = kanji[field].replace(/<(img|a c=".") (svg)=("|')(.*?)("|')>/gi, "<img src='assets/img/$4.$2' style='height: 16px;width:auto;display: inline;'>");
+                  kanji[field] = kanji[field].replace(/<(img) (svg)=("|')(.*?)("|')>/gi, "<img src='assets/img/$4.$2' style='height: 16px;width:auto;display: inline;'>");
+                  kanji[field] = kanji[field].replace(/<a c="(.)" (svg)=("|')(.*?)("|')>/gi, "$1<img src='assets/img/$4.$2' style='height: 16px;width:auto;display: inline;'>");
 				          // Split the field in array for each kanji found in text.
 				          // Then template will add a link to each kanji (unique caractere on 1 line).
                   kanji[field] = kanji[field].split(/(\p{Script=Hani})+/gu);

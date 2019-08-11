@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.quezako.kanji" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Kanji Mnemonics</name>
-    <description>Kanji Mnemonics</description>
+    <name>Kanji Memorize</name>
+    <description>Kanji Memorize</description>
     <author email="bureau@quezako.com" href="https://quezako.com/">Jonathan Mousserion</author>
     <content src="index.html" />
     <access origin="*" />

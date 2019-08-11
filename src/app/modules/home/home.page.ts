@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { ViewChild } from '@angular/core';
+
+import { IonSearchbar } from '@ionic/angular';
 
 import { filter, switchMap, debounceTime, catchError } from 'rxjs/operators';
 import { EMPTY, empty } from 'rxjs';
@@ -14,6 +17,8 @@ import { Kanji } from '../../shared/models/kanji.model';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild(IonSearchbar) myInput: IonSearchbar;
+
   kanjis: any = [
     [
       {
@@ -69,10 +74,13 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => { this.myInput.setFocus(); }, 150);
+
     this.findControl.valueChanges
       .subscribe(kanjis => {
         this.noresult = false;
         this.loading = true;
+        setTimeout(() => { this.myInput.setFocus(); }, 150);
       });
 
     this.findControl.valueChanges
@@ -86,6 +94,7 @@ export class HomePage implements OnInit {
               this.error = true;
               this.loading = false;
               console.log('error');
+              setTimeout(() => { this.myInput.setFocus(); }, 150);
 
               return EMPTY;
             })
@@ -102,6 +111,7 @@ export class HomePage implements OnInit {
           // console.log(kanjis.result[this.json]);
           this.kanjis = kanjis.result[this.json];
           console.log(this.kanjis);
+          setTimeout(() => { this.myInput.setFocus(); }, 150);
 
           if (kanjis.result[this.json].length == 0) {
             this.noresult = true;
@@ -111,10 +121,13 @@ export class HomePage implements OnInit {
         } else {
           this.kanjis = null;
           this.error = true;
+          setTimeout(() => { this.myInput.setFocus(); }, 150);
 
           return EMPTY;
         }
       });
+
+    setTimeout(() => { this.myInput.setFocus(); }, 150);
   }
 
 segmentChanged(segment: any): void {
@@ -132,5 +145,7 @@ segmentChanged(segment: any): void {
     if (this.findControl.value && this.findControl.value.length != 0) {
       this.findControl.setValue(this.findControl.value);
     }
+
+    setTimeout(() => { this.myInput.setFocus(); }, 150);
   }
 }
