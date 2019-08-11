@@ -19,11 +19,15 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      // set status bar to white
-      //this.statusBar.backgroundColorByHexString('#ffffff');
+      // Style: default.
+      //this.statusBar.styleDefault();
+      // Style: white on black.
+      this.statusBar.styleBlackTranslucent();
       // this.statusBar.styleLightContent();
       //this.statusBar.styleBlackOpaque();
+
+      // set status bar (background) to white
+      //this.statusBar.backgroundColorByHexString('#ffffff');
       // let status bar overlay webview
       //this.statusBar.overlaysWebView(false);
       this.splashScreen.hide();
