@@ -34,3 +34,8 @@ img/
 Thumbs.db
 UserInterfaceState.xcuserstate
 my-release-key.keystore
+.gradle.zip
+.gradle.old.zip
+www.zip
+.gradle/5.2.1/fileHashes/fileHashes.lock
+.gradle/5.2.1/fileChanges/last-build.bin
